@@ -346,6 +346,7 @@ main .main-contaner .right {
   border-radius: 10px;
   -webkit-animation: F-left 1.5s cubic-bezier(0.16, 1.44, 1, 0.75);
           animation: F-left 1.5s cubic-bezier(0.16, 1.44, 1, 0.75);
+  height: 100%;
 }
 main .main-contaner .right h1 {
   color: aqua;
