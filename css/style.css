@@ -384,6 +384,11 @@ main .main-contaner .right .new .news:not(:last-of-type) p::before {
   background-color: aqua;
 }
 @media (max-width: 767px) {
+  main .future .read p {
+    margin-bottom: 2em;
+  }
+}
+@media (max-width: 767px) {
   main .main-contaner {
     max-width: -webkit-fit-content;
     max-width: -moz-fit-content;
@@ -397,6 +402,7 @@ main .main-contaner .right .new .news:not(:last-of-type) p::before {
   main .main-contaner .right {
     width: 100%;
     height: 500px;
+    font-size: 13px;
   }
 }
 
