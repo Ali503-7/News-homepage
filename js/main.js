@@ -29,8 +29,9 @@ let b_two = document.querySelector("#two");
 let b_three = document.querySelector("#three");
 
 
+
 window.onscroll = () => {
-  if (window.scrollY >= footer.offsetTop - 480) {
+  if (window.scrollY >= footer.offsetTop - 700) {
     b_one.style.animationName = "F-right"
     b_one.style.display = "grid"
     b_two.style.animationName = "F-bottom"
