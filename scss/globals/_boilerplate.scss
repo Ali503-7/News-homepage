@@ -1,0 +1,26 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*, *::after, *::before{
+  box-sizing: inherit;
+  transition: .5s;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 50px auto;
+  padding: 0px;
+  height: 120vh;
+  background-color: #391839;
+    background-image: linear-gradient(0deg, #391839 0%, #363ea5 60%);
+  overflow-x: hidden;
+}
+
+ul {
+  display: flex;
+  li{
+    list-style: none;
+  }
+}

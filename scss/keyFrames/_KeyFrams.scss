@@ -1,0 +1,46 @@
+@keyframes F_top {
+  from {
+    top: -200px;
+    position: absolute;
+  }
+
+  to {
+    top: 0px;
+    position: relative;
+  }
+}
+
+
+@keyframes F-right {
+  0% {
+    left: -900px;
+    position: relative;
+  }
+
+  100% {
+    left: 0px;
+    position: relative;
+  }
+}
+@keyframes F-left {
+  0% {
+    right: -900px;
+    position: relative;
+  }
+
+  100% {
+    right: 0px;
+    position: relative;
+  }
+}
+@keyframes F-bottom {
+  0% {
+    bottom: -900px;
+    position: relative;
+  }
+
+  100% {
+    bottom: 0px;
+    position: relative;
+  }
+}
