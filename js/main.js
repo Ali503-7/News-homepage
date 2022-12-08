@@ -42,3 +42,4 @@ window.onscroll = () => {
     b_three.style.animationDuration = "1.7s"
   };
 };
+

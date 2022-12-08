@@ -474,7 +474,6 @@ main .main-contaner .right .new .news:not(:last-of-type) p::before {
           animation-duration: 1s;
   -webkit-animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
           animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
-  display: none;
 }
 
 .box:nth-child(2) {
@@ -482,7 +481,6 @@ main .main-contaner .right .new .news:not(:last-of-type) p::before {
           animation-duration: 1s;
   -webkit-animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
           animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
-  display: none;
 }
 
 .box:nth-child(3) {
@@ -490,7 +488,6 @@ main .main-contaner .right .new .news:not(:last-of-type) p::before {
           animation-duration: 1s;
   -webkit-animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
           animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
-  display: none;
 }
 
 @media (max-width: 767px) {

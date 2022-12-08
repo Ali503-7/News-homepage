@@ -413,14 +413,13 @@ main {
   .box:nth-child(#{$i}) {
     animation-duration: 1s;
     animation-timing-function: $main-animation;
-    display: none
   }
 };
 
 @include breakPoint(mobile) {
   @for $i from 1 through 3 {
     .box:nth-child(#{$i}) {
-      display: grid
+      animation-name: unset !important;
     }
   };
 }
