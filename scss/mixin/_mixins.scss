@@ -18,3 +18,11 @@
     };
   };
 };
+
+// animation funciton
+
+@mixin animations($animationName, $animationMove, $time) {
+  &.animate {
+    animation: $animationName #{$time}s $animationMove forwards;
+  }
+}

@@ -13,10 +13,9 @@
 
 // main margin
 $padding: 150px;
-$delay: .8s;
+$delay: 0.8s;
 $margin: 50px;
-$main-animation: cubic-bezier(.16, 1.44, 1, .75);
-
+$main-animation: cubic-bezier(0.16, 1.44, 1, 0.75);
 
 // header
 header {
@@ -24,13 +23,15 @@ header {
   margin-bottom: $margin;
   padding: 0px 30px;
   max-width: 1100px;
+  position: relative;
   height: fit-content;
+  top: -200px;
   .head-contaner {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    a:hover img{
+    a:hover img {
       filter: invert(100%);
     }
 
@@ -38,13 +39,12 @@ header {
       transition: $delay;
       position: relative;
       z-index: 1;
-      
     }
 
     .big-links {
       li {
         margin-left: 30px;
-        opacity: .5;
+        opacity: 0.5;
         color: white;
         cursor: pointer;
         position: relative;
@@ -53,7 +53,7 @@ header {
           color: $hove-c;
           opacity: 2;
         }
-      
+
         &::before {
           content: "";
           position: absolute;
@@ -67,23 +67,20 @@ header {
         &:hover::before {
           width: 100%;
         }
-
       }
     }
 
     .lins-mobile {
       display: none;
     }
-
   }
-  @include breakPoint(mobile) {
-    header {
-      max-width: 100px;
-    }
+  @include animations(F-top, $main-animation, 1);
+}
+@include breakPoint(mobile) {
+  header {
     .big-links {
       display: none;
     }
-
     .lins-mobile {
       width: 45px;
       height: 25px;
@@ -91,7 +88,7 @@ header {
       flex-direction: column;
       justify-content: space-between;
       cursor: pointer;
-      
+
       span {
         width: 100%;
         height: 3px;
@@ -100,9 +97,7 @@ header {
         z-index: 2;
       }
     }
-
   }
-  animation: F_top 1s $main-animation;
 }
 
 .mobile-I-links {
@@ -125,17 +120,16 @@ header {
   }
 }
 
-
 @include breakPoint(mobile) {
-.mobile-I-links {
+  .mobile-I-links {
     position: absolute;
-    width: calc(100% /2);
+    width: calc(100% / 2);
     height: 100%;
     background-color: $hove-c;
     right: -800px;
     top: 0;
     display: none;
-    transition: $delay+s;
+    transition: $delay + s;
     z-index: 2;
     div {
       width: 50px;
@@ -145,7 +139,6 @@ header {
       right: 30px;
       cursor: pointer;
     }
-
 
     span {
       border-radius: 16px;
@@ -178,75 +171,78 @@ header {
   }
 }
 
-
 main {
-  
-  .main-contaner{
+  .main-contaner {
     margin: 0 auto;
     padding: 0px 30px;
     max-width: 1100px;
     height: fit-content;
     display: grid;
-    grid-template-areas: 
-    "left left right"
-    "left left right"
-    "bottom bottom bottom";
+    grid-template-areas:
+      "left left right"
+      "left left right"
+      "bottom bottom bottom";
     grid-template-rows: minmax(200px, auto);
     grid-gap: 5em 2em;
 
     .left {
       grid-area: left;
       display: grid;
-      grid-template-areas: 
-      "img img"
-      "futture futture";
+      grid-template-areas:
+        "img img"
+        "futture futture";
       gap: 2em;
-        .main-img {
-            grid-area: img;
-            border-radius: 10px;
-            height: 300px;
-            overflow: hidden;
-            position: relative;
+      .main-img {
+        grid-area: img;
+        border-radius: 10px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        left: -900px;
 
-            img {
-              position: absolute;
-              width: 100%;
-            }
-
-            img:hover {
-              transform: scale(1.04);
-            }
-            animation: F-right 1.3s $main-animation;
+        img {
+          position: absolute;
+          width: 100%;
         }
+
+        img:hover {
+          transform: scale(1.04);
+        }
+        @include animations(F-right, $main-animation, 1.3);
+      }
 
       .future {
         grid-area: futture;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2em;
-        >P {
+        > P {
           font-size: 48px;
           line-height: 1;
           font-weight: 900;
           color: white;
-          animation: F-bottom 1.7s $main-animation;
+          position: relative;
+          bottom: -900px;
+          @include animations(F-bottom, $main-animation, 1.7);
         }
         .read {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          animation: F-bottom 2s $main-animation;
+          position: relative;
+          bottom: -900px;
+
+          @include animations(F-bottom, $main-animation, 2);
           p {
             font-size: 15px;
-            opacity: .8;
-
+            opacity: 0.8;
           }
           button {
             background-color: #f14635;
             outline: none;
             border: none;
             width: 50%;
-            height: calc(100% /3);
+            height: calc(100% / 3);
             color: black;
             cursor: pointer;
             border-radius: 5px;
@@ -261,7 +257,7 @@ main {
           }
         }
       }
-    };
+    }
     .right {
       grid-area: right;
       width: 350px;
@@ -270,14 +266,18 @@ main {
       background-color: #34364f;
       padding: 2em;
       border-radius: 10px;
-      animation: F-left 1.5s $main-animation;
       height: 100%;
+      position: relative;
+      right: -900px;
+      @include animations(F-left, $main-animation, 1.5);
+
       h1 {
         color: aqua;
         font-size: 2.5em;
         margin-bottom: 1em;
       }
-      h3 ,p {
+      h3,
+      p {
         color: white;
       }
       h3 {
@@ -297,7 +297,7 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        .news:not(:last-of-type) p::before{
+        .news:not(:last-of-type) p::before {
           content: "";
           position: absolute;
           width: 100%;
@@ -307,32 +307,30 @@ main {
           background-color: aqua;
         }
       }
-
     }
   }
+}
 @include breakPoint(mobile) {
   .future .read p {
     margin-bottom: 2em;
   }
 }
-  @include breakPoint(mobile) {
-    .main-contaner {
-      max-width: fit-content;
-      grid-template-areas: "left"
-                          "right"
-                          "bottom";
-      .future {
-        grid-template-columns: unset !important;
-        grid-template-rows: repeat(2, 1fr);
-        
-      }
-      .right {
-        width: 100%;
-        height: 500px;
-        font-size: 13px;
-      }
+@include breakPoint(mobile) {
+  .main-contaner {
+    max-width: fit-content !important;
+    grid-template-areas:
+      "left"
+      "right"
+      "bottom" !important;
+    .future {
+      grid-template-columns: unset !important;
+      grid-template-rows: repeat(2, 1fr) !important;
     }
-
+    .right {
+      width: 100% !important;
+      height: 500px !important;
+      font-size: 13px !important;
+    }
   }
 }
 
@@ -368,7 +366,7 @@ main {
 
       h4 {
         color: white;
-        opacity: .4;
+        opacity: 0.4;
         font-size: 2.4em;
         margin: 0px;
       }
@@ -390,14 +388,13 @@ main {
         font-size: 14px;
       }
     }
-
   }
 }
 
 @include breakPoint(mobile) {
-    body {
-        height: fit-content !important;
-      }
+  body {
+    height: fit-content !important;
+  }
   .bottom {
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: unset !important;
@@ -408,18 +405,18 @@ main {
   }
 }
 
-
-@for $i from 1 through 3 {
-  .box:nth-child(#{$i}) {
-    animation-duration: 1s;
-    animation-timing-function: $main-animation;
-  }
-};
-
-@include breakPoint(mobile) {
-  @for $i from 1 through 3 {
-    .box:nth-child(#{$i}) {
-      animation-name: unset !important;
-    }
-  };
+.one {
+  position: relative;
+  left: -900px;
+  @include animations(F-right, $main-animation, 1);
+}
+.two {
+  position: relative;
+  bottom: -200px;
+  @include animations(F-bottom, $main-animation, 1.5);
+}
+.three {
+  position: relative;
+  right: -900px;
+  @include animations(F-left, $main-animation, 2);
 }

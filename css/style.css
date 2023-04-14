@@ -12,7 +12,6 @@ body {
   font-family: "Inter", sans-serif;
   margin: 50px auto;
   padding: 0px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   background-color: #391839;
@@ -41,83 +40,26 @@ a, a:visited, a:active {
   text-decoration: none;
 }
 
-@-webkit-keyframes F_top {
-  from {
-    top: -200px;
-    position: absolute;
-  }
+@keyframes F-top {
   to {
     top: 0px;
-    position: relative;
-  }
-}
-
-@keyframes F_top {
-  from {
-    top: -200px;
-    position: absolute;
-  }
-  to {
-    top: 0px;
-    position: relative;
-  }
-}
-@-webkit-keyframes F-right {
-  0% {
-    left: -900px;
-    position: relative;
-  }
-  100% {
-    left: 0px;
     position: relative;
   }
 }
 @keyframes F-right {
-  0% {
-    left: -900px;
-    position: relative;
-  }
-  100% {
+  to {
     left: 0px;
     position: relative;
   }
 }
-@-webkit-keyframes F-left {
-  0% {
-    right: -900px;
-    position: relative;
-  }
-  100% {
-    right: 0px;
-    position: relative;
-  }
-}
 @keyframes F-left {
-  0% {
-    right: -900px;
-    position: relative;
-  }
-  100% {
+  to {
     right: 0px;
-    position: relative;
-  }
-}
-@-webkit-keyframes F-bottom {
-  0% {
-    bottom: -900px;
-    position: relative;
-  }
-  100% {
-    bottom: 0px;
     position: relative;
   }
 }
 @keyframes F-bottom {
-  0% {
-    bottom: -900px;
-    position: relative;
-  }
-  100% {
+  to {
     bottom: 0px;
     position: relative;
   }
@@ -127,11 +69,10 @@ header {
   margin-bottom: 50px;
   padding: 0px 30px;
   max-width: 1100px;
-  height: -webkit-fit-content;
+  position: relative;
   height: -moz-fit-content;
   height: fit-content;
-  -webkit-animation: F_top 1s cubic-bezier(0.16, 1.44, 1, 0.75);
-          animation: F_top 1s cubic-bezier(0.16, 1.44, 1, 0.75);
+  top: -200px;
 }
 header .head-contaner {
   display: flex;
@@ -172,10 +113,11 @@ header .head-contaner .big-links li:hover::before {
 header .head-contaner .lins-mobile {
   display: none;
 }
+header.animate {
+  animation: F-top 1s cubic-bezier(0.16, 1.44, 1, 0.75) forwards;
+}
+
 @media (max-width: 767px) {
-  header header {
-    max-width: 100px;
-  }
   header .big-links {
     display: none;
   }
@@ -195,7 +137,6 @@ header .head-contaner .lins-mobile {
     z-index: 2;
   }
 }
-
 .mobile-I-links {
   display: none;
 }
@@ -264,7 +205,6 @@ main .main-contaner {
   margin: 0 auto;
   padding: 0px 30px;
   max-width: 1100px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   display: grid;
@@ -284,8 +224,7 @@ main .main-contaner .left .main-img {
   height: 300px;
   overflow: hidden;
   position: relative;
-  -webkit-animation: F-right 1.3s cubic-bezier(0.16, 1.44, 1, 0.75);
-          animation: F-right 1.3s cubic-bezier(0.16, 1.44, 1, 0.75);
+  left: -900px;
 }
 main .main-contaner .left .main-img img {
   position: absolute;
@@ -293,6 +232,9 @@ main .main-contaner .left .main-img img {
 }
 main .main-contaner .left .main-img img:hover {
   transform: scale(1.04);
+}
+main .main-contaner .left .main-img.animate {
+  animation: F-right 1.3s cubic-bezier(0.16, 1.44, 1, 0.75) forwards;
 }
 main .main-contaner .left .future {
   grid-area: futture;
@@ -305,15 +247,21 @@ main .main-contaner .left .future > P {
   line-height: 1;
   font-weight: 900;
   color: white;
-  -webkit-animation: F-bottom 1.7s cubic-bezier(0.16, 1.44, 1, 0.75);
-          animation: F-bottom 1.7s cubic-bezier(0.16, 1.44, 1, 0.75);
+  position: relative;
+  bottom: -900px;
+}
+main .main-contaner .left .future > P.animate {
+  animation: F-bottom 1.7s cubic-bezier(0.16, 1.44, 1, 0.75) forwards;
 }
 main .main-contaner .left .future .read {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  -webkit-animation: F-bottom 2s cubic-bezier(0.16, 1.44, 1, 0.75);
-          animation: F-bottom 2s cubic-bezier(0.16, 1.44, 1, 0.75);
+  position: relative;
+  bottom: -900px;
+}
+main .main-contaner .left .future .read.animate {
+  animation: F-bottom 2s cubic-bezier(0.16, 1.44, 1, 0.75) forwards;
 }
 main .main-contaner .left .future .read p {
   font-size: 15px;
@@ -344,16 +292,20 @@ main .main-contaner .right {
   background-color: #34364f;
   padding: 2em;
   border-radius: 10px;
-  -webkit-animation: F-left 1.5s cubic-bezier(0.16, 1.44, 1, 0.75);
-          animation: F-left 1.5s cubic-bezier(0.16, 1.44, 1, 0.75);
   height: 100%;
+  position: relative;
+  right: -900px;
+}
+main .main-contaner .right.animate {
+  animation: F-left 1.5s cubic-bezier(0.16, 1.44, 1, 0.75) forwards;
 }
 main .main-contaner .right h1 {
   color: aqua;
   font-size: 2.5em;
   margin-bottom: 1em;
 }
-main .main-contaner .right h3, main .main-contaner .right p {
+main .main-contaner .right h3,
+main .main-contaner .right p {
   color: white;
 }
 main .main-contaner .right h3 {
@@ -383,29 +335,28 @@ main .main-contaner .right .new .news:not(:last-of-type) p::before {
   border-radius: 12px;
   background-color: aqua;
 }
+
 @media (max-width: 767px) {
-  main .future .read p {
+  .future .read p {
     margin-bottom: 2em;
   }
 }
 @media (max-width: 767px) {
-  main .main-contaner {
-    max-width: -webkit-fit-content;
-    max-width: -moz-fit-content;
-    max-width: fit-content;
-    grid-template-areas: "left" "right" "bottom";
+  .main-contaner {
+    max-width: -moz-fit-content !important;
+    max-width: fit-content !important;
+    grid-template-areas: "left" "right" "bottom" !important;
   }
-  main .main-contaner .future {
+  .main-contaner .future {
     grid-template-columns: unset !important;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr) !important;
   }
-  main .main-contaner .right {
-    width: 100%;
-    height: 500px;
-    font-size: 13px;
+  .main-contaner .right {
+    width: 100% !important;
+    height: 500px !important;
+    font-size: 13px !important;
   }
 }
-
 .bottom {
   margin: 0 auto;
   padding: 0px 30px;
@@ -456,7 +407,6 @@ main .main-contaner .right .new .news:not(:last-of-type) p::before {
 
 @media (max-width: 767px) {
   body {
-    height: -webkit-fit-content !important;
     height: -moz-fit-content !important;
     height: fit-content !important;
   }
@@ -469,35 +419,26 @@ main .main-contaner .right .new .news:not(:last-of-type) p::before {
     margin-bottom: 3em;
   }
 }
-.box:nth-child(1) {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
-          animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
+.one {
+  position: relative;
+  left: -900px;
+}
+.one.animate {
+  animation: F-right 1s cubic-bezier(0.16, 1.44, 1, 0.75) forwards;
 }
 
-.box:nth-child(2) {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
-          animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
+.two {
+  position: relative;
+  bottom: -200px;
+}
+.two.animate {
+  animation: F-bottom 1.5s cubic-bezier(0.16, 1.44, 1, 0.75) forwards;
 }
 
-.box:nth-child(3) {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
-          animation-timing-function: cubic-bezier(0.16, 1.44, 1, 0.75);
+.three {
+  position: relative;
+  right: -900px;
 }
-
-@media (max-width: 767px) {
-  .box:nth-child(1) {
-    display: grid;
-  }
-  .box:nth-child(2) {
-    display: grid;
-  }
-  .box:nth-child(3) {
-    display: grid;
-  }
+.three.animate {
+  animation: F-left 2s cubic-bezier(0.16, 1.44, 1, 0.75) forwards;
 }/*# sourceMappingURL=style.css.map */
